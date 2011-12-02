@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'ProximaNova';
+  font-style: normal;
+  font-weight: normal;
+  src: url('proximanova-reg-webfont.ttf');
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: black;
+}
+
+.imgManga {
+	text-align: center;
+	margin: 20px 0;
+	clear: both;
+}
+
+h1 {
+	color: #2B2B2B;
+	font-family: 'ProximaNova', arial;
+}
+

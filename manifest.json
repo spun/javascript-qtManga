@@ -1,0 +1,31 @@
+{
+	"name": "qtManga",
+	"version": "0.0.1",
+	"description": "QtManga",
+	"icons": {
+		"16": "img/icons/16.png",
+		"48": "img/icons/48.png",
+		"128": "img/icons/128.png"
+	},
+	"background_page": "background.html",
+	"browser_action": {
+		"default_icon": "img/icons/16.png",
+		"default_title": "qtManga"
+	},
+	"content_scripts": [
+		{
+		"matches": ["http://submanga.com/*"],
+		"js": ["servers/submanga_web.js"],
+		"run_at": "document_start"
+		},
+		{
+		"matches": ["http://mangastream.com/*"],
+		"js": ["servers/mangastream_web.js"],
+		"run_at": "document_start"
+		}
+	],
+	"permissions": [
+		"http://*/*",
+		"tabs"
+	]
+}
