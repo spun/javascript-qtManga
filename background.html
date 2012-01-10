@@ -1,22 +1,26 @@
+<script src="js/bd.js" type="text/javascript"></script>
 <script src="servers/submanga.js" type="text/javascript"></script>
-<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
 <script>
 
-   /* SIN FUNCION
+   /* SIN FUNCION */
    chrome.browserAction.onClicked.addListener(function(tab) {
-        chrome.tabs.create({url: chrome.extension.getURL("page.html") });
+
+		var url = chrome.extension.getURL("page.html")+"?"
+			+encodeURIComponent("index");
+		chrome.tabs.create({url: url });
 
 		//chrome.browserAction.setBadgeText({text: "on", tabId: sender.tab.id});
 		//chrome.browserAction.setBadgeBackgroundColor({color: [0, 255, 0, 72], tabId: sender.tab.id});
 
     });
-    */
+
 
     chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
 		if (request.action == "reader")
 		{
-			var url = chrome.extension.getURL("page.html")+"?"
+			var url = chrome.extension.getURL("reader.html")+"?"
 					+encodeURIComponent("reader")
 					+"&"+encodeURIComponent(request.server)
 					+"&"+encodeURIComponent(request.url);
@@ -29,4 +33,48 @@
 
 		}
     });
+
+    // Semana
+    var refreshMangaListTime = 604800000;
+
+    var refresh = function refreshMangaList()
+    {
+		var refresh = false;
+		var mangaListUpdate = new Object();
+
+		if(localStorage.getItem('lastMangaListUpdate'))
+		{
+			var mangaListUpdate = JSON.parse(localStorage.getItem('lastMangaListUpdate'));
+			if(mangaListUpdate.submanga)
+			{
+				var actualTime =  new Date().getTime();
+				if(actualTime > (refreshMangaListTime+mangaListUpdate.submanga))
+				{
+					refresh = true;
+				}
+			}
+			else
+			{
+				refresh = true;
+			}
+		}
+		else
+		{
+			refresh = true;
+		}
+
+
+		if(refresh)
+		{
+			submanga.getMangaList(mangadb, function() {
+				mangaListUpdate.submanga = new Date().getTime();
+				localStorage.setItem('lastMangaListUpdate', JSON.stringify(mangaListUpdate));
+			});
+		}
+	}();
+
+
+
+
+
 </script>

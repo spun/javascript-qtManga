@@ -1,8 +1,36 @@
 @font-face {
-  font-family: 'ProximaNova';
-  font-style: normal;
-  font-weight: normal;
-  src: url('proximanova-reg-webfont.ttf');
+	font-family: 'Cantarell';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/Cantarell-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Carme';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/Carme-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'DroidSans';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/DroidSans.ttf');
+}
+
+@font-face {
+	font-family: 'OpenSans';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Questrial';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/Questrial-Regular.ttf');
 }
 
 * {
@@ -11,17 +39,154 @@
 }
 
 body {
-	background-color: black;
+	font-family: 'Questrial';
+	background: #D2D6D6 url('../img/bg2.png') repeat;
+	/*background:url('../img/bg2.jpg') repeat-x #718693;*/
+	color: black;
 }
 
-.imgManga {
+button {
+	cursor: pointer;
+	height: 20px;
+	padding: 1px 11px 2px 11px;
+	color: #fff;
+	text-shadow: 0px -1px 0px #43a6cd;
+	background-color: #50bce6;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.27, rgb(73,184,228)),color-stop(1, rgb(116,206,241)));
+	box-shadow: 0px 1px 0px #cfcfcf, 0px 1px 0px #92d8f4 inset;
+	border: 1px solid #3990b0;
+	border-radius: 30px;
+}
+
+button:active {
+	text-shadow: 0px -1px 0px #43a6cd;
+	background-color: #45a1c5;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.27, rgb(66,169,210)),color-stop(1, rgb(109,192,225)));
+	box-shadow: 0px 1px 0px #fff, 0px 1px 0px #46acd4 inset;
+	border: 1px solid #327d99;
+}
+
+
+::selection {background:#88b9cf; text-shadow:none; }
+
+#logo {
+	cursor: pointer;
+}
+
+#nav-bar li {
+	float: left;
+	background-color: white;
+	list-style-type: none;
+}
+
+#quick-search-box {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 25px;
+}
+
+#quick-search {
+	width: 250px;
+	border: 1px solid #BCBFC0;
+	padding: 4px;
+	border-radius: 5px;
+	outline: none;
+	-webkit-transition: border 1000ms ease-in-out;
+}
+
+#quick-search:focus {
+	border: 1px solid #5E5E5E;
+	-webkit-transition: border 1000ms ease-in-out;
+}
+
+#quick-search-button {
+
+}
+
+#quick-search-results {
+	margin-top: 2px;
+	border-radius: 3px;
+	width: 258px;
+	background-color: white;
+	position: relative;
+	z-index: 5;
+	border: 1px solid #828282;
+	display: none;
+	/*-webkit-transition: all 3000ms ease-in-out;*/
+
+}
+
+
+
+.quick-search-result {
+	padding: 10px;
+	list-style-type: none;
+	cursor: pointer;
+	font-size: 0.85em;
+}
+
+.quick-search-result+.quick-search-result {
+	border-top: 1px solid #BCBFC0;
+
+}
+
+.quick-search-result:hover {
+	background-color: #88b9cf;
+}
+
+.quick-search-result:active {
+	color: white;
+}
+
+.quick-search-result .service-icon {
+	height: 20px;
+	width: 20px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	margin-right: 5px;
+	vertical-align: middle;
+	opacity: 0.7;
+}
+
+.quick-search-result:hover .service-icon {
+	opacity: 1.0;
+}
+
+#main-container {
+	padding: 40px 0;
+	width: 1008px;
+	margin: 0 auto;
+}
+
+.box {
+	position: relative;
+	background: #F1F4F5;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 0 #fff,0px 1px 1px rgba(0,0,0,0.35);
+	margin: 30px 15px;
+}
+
+.box-header {
+	padding: 9px;
+	color: white;
 	text-align: center;
-	margin: 20px 0;
-	clear: both;
+	font-size: 16px;
+	border-radius: 3px 3px 0 0;
+	background: #343434;
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.35);
 }
 
-h1 {
-	color: #2B2B2B;
-	font-family: 'ProximaNova', arial;
+.box-body {
+
 }
 
+
+li.manga-fresh+li.manga-fresh {
+	border-top: 1px solid #BCBFC0;
+}
+
+li.manga-fresh {
+	padding: 10px 15px;
+	list-style-type: none;
+}
