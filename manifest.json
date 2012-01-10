@@ -27,5 +27,6 @@
 	"permissions": [
 		"http://*/*",
 		"tabs"
-	]
+	],
+	"update_url": "http://spun.github.com/qtmanga/chrome_update.xml"
 }
